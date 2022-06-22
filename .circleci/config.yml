@@ -1,5 +1,14 @@
 version: 2
 jobs:
+   build:
+    docker:
+      - image: cimg/base:2020.01
+    steps:
+      - checkout
+      - run:
+          name: "echo an env var that is part of our project"
+          command: |
+            echo $MY_ENV_VAR
   one:
     docker:
       - image: cimg/ruby:3.0.2
@@ -40,6 +49,7 @@ workflows:
   version: 2
   one_and_two:
     jobs:
+      - test-env-vars
       - one
       - two:
           requires:
