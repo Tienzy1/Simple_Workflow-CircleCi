@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  test-env-vars:
     docker:
       - image: cimg/base:2020.01
     steps:
